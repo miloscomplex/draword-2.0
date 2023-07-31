@@ -1,0 +1,443 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/*-----/ Added CSS /-----*/
+
+
+/* font-weights: 300, 400, 600, 700, 900 */
+canvas {
+  background-color: #000;
+  border-radius: .5em;
+}
+
+body, input {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #454545;
+}
+
+h1 {
+  font-weight: 900;
+  margin: .5em 0;
+}
+
+h2 {
+  margin: 1em 0 .25em 0;
+  font-size: 1.8em;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(18, 179, 219);
+}
+
+.button {
+  font-size: .9em;
+}
+
+button, .button a {
+  background-color: black;
+  border-style: none;
+  color: white;
+  text-transform: uppercase;
+  padding: .55em .8em .5em .8em;
+  font-weight: 600;
+  border-radius: .25em;
+  margin: .4em;
+  width: 80%;
+  max-width: 300px;
+  font-size: .8em;
+}
+
+button:hover, .button a:hover {
+  cursor: pointer;
+  background-color: #5e7d6f;
+}
+
+.newRoomForm button {
+  width: auto;
+}
+
+button:disabled {
+  background-color: grey;
+}
+
+a.disabled {
+  background-color: grey;
+  cursor: auto;
+}
+
+input {
+  border-style: none;
+  border: solid 1px #ccc;
+  padding: .5em;
+  width: 80%;
+  border-radius: .2em;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+ul {
+  padding: 0;
+}
+
+#footer {
+  border-top: solid 1px #ccc;
+  margin-top: 1.5em;
+}
+
+#header {
+  border-bottom: solid 1px #ccc;
+  margin: 0 0 1.5em 0;
+}
+
+#header h1 {
+  font-family: 'Schoolbell', cursive;
+  font-size: 4em;
+  text-transform: uppercase;
+}
+
+#nav a, #footer a {
+  display: inline-block;
+  margin: 0 .75em 1em 0;
+  padding-right: .75em;
+  font-weight: 700;
+  border-right: 1px solid #adacaa;
+}
+
+#nav a:first-child, #footer a:first-child {
+  margin: 0 .75em 1em .75;
+  padding-left: .75em;
+  border-left: 1px solid #adacaa;
+}
+
+#wrapper {
+  margin: auto;
+  display: flex;
+  width: 70%;
+}
+
+@media screen and (max-width: 700px) {
+
+  #header h1 {
+    font-size: 8vw;
+  }
+
+  #wrapper {
+    width: 100%;
+    display: block;
+    margin: 0 .2em;
+  }
+  #wrapper #chatWindow {
+    margin: 0;
+    width: 480px;
+    padding: 10px;
+  }
+  #wrapper #canvas {
+    margin: 0;
+  }
+
+  #canvas .timer {
+    top: auto;
+    bottom: 1em;
+  }
+
+  #chatWindow .chat-messages {
+    height: 140px;
+  }
+  #chatWindow h2 {
+    display: none;
+  }
+}
+
+/* Non-flex version */
+.wrapper {
+  margin: auto;
+  width: 80%;
+  max-width: 900px;
+}
+
+#canvas {
+  position: relative;
+  width: 500px;
+  margin: 2.5em 0;
+}
+
+#chatWindow {
+  min-width: 200px;
+  padding: 1em;
+  border: solid 1px #ccc;
+  margin: 2.5em .5em 2.5em .5em;
+  background-color: #eee;
+  border-radius: .5em;
+}
+
+#canvas .score, .timer {
+  color: #666;
+  font-weight: 700;
+  font-size: .8em;
+  text-transform: uppercase;
+}
+
+#toolbox {
+  font-size: .9em;
+  background-color: #eee;
+  margin: 0;
+  padding: .5em 1em;
+  text-align: left;
+  border: solid 1px #ccc;
+}
+
+#toolbox li {
+  color: white;
+  background-color: #000;
+  display: inline-block;
+  padding: .25em .5em .2em .5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: .3em;
+  vertical-align: top;
+  height: 14px;
+  border: solid 2px #000;
+}
+
+#toolbox li:hover {
+  background-color: #333;
+}
+
+#toolbox .color-selector {
+  width: 15px;
+  background-color: #000;
+  margin: 0 0 0 .7em;
+  border-radius: .5em;
+}
+
+#toolbox .color-selector:hover {
+  background-color: white;
+}
+
+#toolbox .yellow {
+  background-color: yellow;
+  border: solid 2px yellow;
+}
+
+#toolbox .red {
+  background-color: red;
+  border: solid 2px red;
+}
+
+#toolbox .blue {
+  background-color: blue;
+  border: solid 2px blue;
+}
+
+#toolbox .green {
+  background-color: green;
+  border: solid 2px green;
+}
+
+#toolbox .white {
+  background-color: white;
+  border: solid 2px white;
+}
+
+#toolbox .hi-light {
+  border: solid 2px black;
+}
+
+.strong {
+  font-weight: 900;
+}
+
+.score {
+  display: inline-block;
+  position: absolute;
+  top: -1.5em;
+  left: 1em;
+}
+
+.timer {
+  display: inline-block;
+  position: absolute;
+  top: -1.5em;
+  right: 1em;
+}
+
+.chat-messages {
+  border: solid 1px #ccc;
+  padding: .5em;
+  margin-bottom: .5em;
+  background-color: #fff;
+  border-radius: .3em;
+  overflow-y: scroll;
+  text-align: left;
+  height: 340px;
+}
+
+.chat-messages p {
+  /* background-color: #cdeff7; */
+  padding: .75em;
+  margin-top: 1.5em;
+  border-radius: .6em;
+  font-weight: 500;
+  overflow-wrap: break-word;
+  position: relative;
+}
+
+.chat-messages span {
+  position: absolute;
+  display: inline-block;
+  top: -1.2em;
+  left: .6em;
+  text-transform: uppercase;
+  font-size: .7em;
+  color: #888;
+
+}
+
+/* need .chat-message to override above bgc */
+.admin {
+  background-color: #b9d959;
+}
+
+.guesser {
+  background-color: #cdeff7;
+}
+
+.drawer {
+  background-color: #d9d259;
+}
+
+.how-to-play {
+  width: 80%;
+  margin: auto;
+}
+
+.roomsList li {
+  font-size: 1.2em;
+  background-color: #ddd;
+  border-radius: .3em;
+  display: inline-block;
+  margin: 0 .5em .5em 0;
+}
+
+.roomsList li a.room {
+  padding: 2em 0;
+  display: block;
+  margin: auto;
+  border-radius: .3em;
+  display: block;
+  width: 200px;
+  font-weight: 600;
+}
+
+.roomsList li:hover {
+  background-color: lightblue;
+}
+
+.status {
+  padding: .5em .2em;
+  font-size: .7em;
+  line-height: 1em;
+  text-transform: uppercase;
+  display: block;
+  color: #c28f4c;
+}
+
+.status span {
+  font-weight: 600;
+}
+
+.landing-page p {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto 0 auto;
+
+}
+
+.leaderboard li, .phrases li {
+    font-size: 1.1em;
+    line-height: 1.1em;
+    margin: 0 auto;
+    border-bottom: 1px solid #adacaa;
+    border-right: 1px solid #adacaa;
+    border-left: 1px solid #adacaa;
+    list-style: none;
+    padding: .75em 0;
+}
+
+.leaderboard li:first-child , .phrases li:first-child {
+  border-top: 1px solid #adacaa;
+}
+
+.leaderboard li:nth-child(odd), .phrases li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.phrases li:hover {
+  background-color: #cdeff7;
+  cursor: pointer;
+}
+
+.phraseReminder {
+  background-color: #cdeff7;
+  padding: .75em;
+}
+
+.scroll-fix {
+  float:left;
+  clear:both;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 1em;
+  margin-top: .5em;
+}
+
+.smaller {
+  max-width: 200px;
+}
+
+.loading-message {
+  font-weight: 900;
+  margin: .5em 0;
+  font-size: 2em;
+  background-image: url('./images/loading_smaller.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 150px;
+  height: 140px;
+  margin: auto;
+
+}
+
+.alt-background {
+  background-color: #cdeff7;
+  padding: .75em;
+  margin-top: 1em;
+}
